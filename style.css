@@ -32,7 +32,11 @@
         --text-color-active: #5656be;
         --heading-text-color: #4848a2;
         --border-settings: 2px solid #7b7bc3;
+
         --border-radius: 0.5rem;
+        --error-color: #ff8181;
+        --error-field-color: #ffeaea;
+        --verify-color: #00ac00;
     }
 
     :root:has(input[data-theme="dark"]:checked) {
@@ -252,7 +256,27 @@
                 padding: 0.3rem;
                 border-radius: var(--border-radius, 0.5rem);
                 border: var(--border-settings, 1px solid black);
+                font-family: 'Satoshi', Tahoma, Geneva, Verdana, sans-serif;
             }
+
+            /* BEGIN Styling for HW4 */
+
+            input:invalid, textarea:invalid {
+                border-color: var(--error-color);
+                background-color: var(--error-field-color);
+            }
+
+            input:valid, textarea:valid {
+                border-color: var(--verify-color);
+            }
+
+            &>label::after,
+            fieldset>legend::after {
+                content: "*";
+                color: var(--error-color);
+            }
+            /* END Styling for HW4 */
+
             fieldset {
                 border: none;
             }
