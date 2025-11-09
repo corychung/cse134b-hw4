@@ -275,6 +275,13 @@
                 content: "*";
                 color: var(--error-color);
             }
+
+            /* output {
+                opacity: 0;
+                margin: none;
+                padding: none;
+            } */
+
             /* END Styling for HW4 */
 
             fieldset {
