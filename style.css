@@ -261,12 +261,12 @@
 
             /* BEGIN Styling for HW4 */
 
-            input:invalid, textarea:invalid {
+            input:user-invalid, textarea:user-invalid {
                 border-color: var(--error-color);
                 background-color: var(--error-field-color);
             }
 
-            input:valid, textarea:valid {
+            input:user-valid, textarea:user-valid {
                 border-color: var(--verify-color);
             }
 
@@ -276,11 +276,31 @@
                 color: var(--error-color);
             }
 
-            /* output {
-                opacity: 0;
-                margin: none;
-                padding: none;
-            } */
+            .form-message {
+                position: relative;
+                height: 1.5rem;
+                text-align: center;
+                output {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    width: 100%;
+                    text-align: center;
+                    opacity: 0;
+                    padding: none;
+                    height:0;
+                    font-weight: bold;
+                }
+                #form-error {
+                    color: var(--error-color);
+                    transition: opacity 0.4s ease;
+                }
+
+                #form-info {
+                    color: var(--verify-color);
+                    transition: opacity 0.4s ease;
+                }
+            }
 
             /* END Styling for HW4 */
 

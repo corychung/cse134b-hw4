@@ -34,13 +34,13 @@
             <form class="page-section" action="https://httpbin.org/post" method="post">
 
                 <input type="hidden" name="possible_bot" value="true">
-
+                
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" minlength="2" maxlength="80" required>
-
+                
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" maxlength="254" required>
-
+                
                 <fieldset>
                     <legend>Select a topic:</legend>
                     <input type="radio" id="proj-inq" name="topic" checked />
@@ -50,16 +50,21 @@
                     <input type="radio" id="other" name="topic"/>
                     <label for="other">Other</label><br>
                 </fieldset>
-
+                
                 <label for="subject">Subject:</label>
                 <input type="text" id="subject" name="subject" minlength="2" maxlength="70" required>
-
+                
                 <label for="comments">Message/Comments:</label>
                 <textarea id="comments" name="comments" maxlength="300" required></textarea>
-
+                <output id="char-count">300 characters remaining</output>
+                
                 <button type="submit">Send</button>
-                <output id="form-error">Error message!</output>
-                <output id="form-info">Info message!</output>
+                <div class="form-message">
+                    <output id="form-error">Error message!</output>
+                    <output id="form-info">Info message!</output>
+                </div>
+                
+                <input type="hidden" name="form-errors" id="form-errors">
             </form>      
         </section>
         <section>
