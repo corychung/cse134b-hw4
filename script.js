@@ -26,6 +26,31 @@ function log_form_error(field, message) {
     console.log("Logged", errorData);
 }
 
+function show_error(msg) {
+    infoOutput.textContent = "";
+    infoOutput.style.opacity = 0;
+    errorOutput.textContent = msg;
+    errorOutput.style.opacity = 1;
+}
+
+function flash_error(msg) {
+    infoOutput.textContent = "";
+    infoOutput.style.opacity = 0;
+    errorOutput.textContent = msg;
+    errorOutput.style.opacity = 1;
+    setTimeout(() => {
+        errorOutput.style.opacity = 0;
+        nameField.style.backgroundColor = "";
+    }, 2200);
+}
+
+function show_info(msg) {
+    errorOutput.textContent = "";
+    errorOutput.style.opacity = 0;
+    infoOutput.textContent = msg;
+    infoOutput.style.opacity = 1;
+}
+
 form.addEventListener("submit", () => {
     formErrorsInput.value = JSON.stringify(formErrors);
 });
@@ -36,8 +61,7 @@ nameField.addEventListener("blur", () => {
     infoOutput.style.opacity = 0;
     if (nameField.validity.tooShort) {
         nameField.setCustomValidity("Enter more than 2 characters.");
-        errorOutput.textContent = "Name is too short!";
-        errorOutput.style.opacity = 1;
+        show_error("Name is too short!");
         log_form_error(nameField, "Name too short");
     }
     else if (nameField.validity.valueMissing) {
@@ -48,10 +72,7 @@ nameField.addEventListener("blur", () => {
     }
     else {
         nameField.setCustomValidity("");
-        errorOutput.textContent = "";
-        errorOutput.style.opacity = 0;
-        infoOutput.textContent = "Name looks good!";
-        infoOutput.style.opacity = 1;
+        show_info("Name looks good!");
     }
 });
 
@@ -59,8 +80,7 @@ email.addEventListener("blur", () => {
     infoOutput.style.opacity = 0;
     if (email.validity.typeMismatch) {
         email.setCustomValidity("Use the right email format: XX@XX.XX");
-        errorOutput.textContent = "Incorrect email format!";
-        errorOutput.style.opacity = 1;
+        show_error("Incorrect email format!");
         log_form_error(email, "Wrong email format");
     } 
     else if (email.validity.valueMissing) {
@@ -68,10 +88,7 @@ email.addEventListener("blur", () => {
     }
     else {
         email.setCustomValidity("");
-        errorOutput.textContent = "";
-        errorOutput.style.opacity = 0;
-        infoOutput.textContent = "Email looks good!";
-        infoOutput.style.opacity = 1;
+        show_info("Email looks good!");
     }
 });
 
@@ -79,14 +96,12 @@ subject.addEventListener("blur", () => {
     infoOutput.style.opacity = 0;
     if (subject.validity.tooShort) {
         subject.setCustomValidity("Subject line too short! Minimum 2 characters.");
-        errorOutput.textContent = "Subject line too short! Minimum 2 characters.";
-        errorOutput.style.opacity = 1;
+        show_error("Subject line too short! Minimum 2 characters.");
         log_form_error(subject, "Subject line too short");
     } 
     else if (!/[A-Za-z0-9]/.test(subject.value)) {
         subject.setCustomValidity("Subject must include letters or numbers.");
-        errorOutput.textContent = "Subject missing letters/numbers";
-        errorOutput.style.opacity = 1;
+        show_error("Subject must include letters or numbers.");
         log_form_error(subject, "Subject missing letters/numbers");
     } 
     else if (subject.validity.valueMissing) {
@@ -94,10 +109,7 @@ subject.addEventListener("blur", () => {
     }
     else {
         subject.setCustomValidity("");
-        errorOutput.textContent = "";
-        errorOutput.style.opacity = 0;
-        infoOutput.textContent = "Subject looks good!";
-        infoOutput.style.opacity = 1;
+        show_info("Subject looks good!");
     }
 });
 
@@ -108,10 +120,7 @@ comments.addEventListener("blur", () => {
     }
     else {
         comments.setCustomValidity("");
-        errorOutput.textContent = "";
-        errorOutput.style.opacity = 0;
-        infoOutput.textContent = "Comments looks good!";
-        infoOutput.style.opacity = 1;
+        show_info("Comments looks good!");
     }
 });
 
@@ -122,15 +131,10 @@ nameField.addEventListener("input", () => {
 
     if (!allowedCharsInName.test(lastChar) && lastChar !== "") {
         nameField.style.backgroundColor = "var(--error-color)";
-        nameField.setCustomValidity("Only letters, spaces, apostrophes, and hyphens allowed!")
-        errorOutput.textContent = "Only letters, spaces, apostrophes, and hyphens allowed!";
-        errorOutput.style.opacity = 1;
+        nameField.setCustomValidity("Only letters, spaces, apostrophes, and hyphens allowed!");
+        flash_error("Only letters, spaces, apostrophes, and hyphens allowed!");
         log_form_error(nameField, "Invalid characters in name field");
 
-        setTimeout(() => {
-            errorOutput.style.opacity = 0;
-            nameField.style.backgroundColor = "";
-        }, 2200);
     }
 });
 
