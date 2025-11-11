@@ -90,6 +90,11 @@
         --text-color-active: #7AAFFF;
         --heading-text-color: #C3DDF6;
         --border-settings: 2px solid #5A86AD;
+
+        --border-radius: 0.5rem;
+        --error-color: #ff8181;
+        --error-field-color: #ffeaea;
+        --verify-color: #00ac00;
     }
 
     body {
