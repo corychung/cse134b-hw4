@@ -153,3 +153,4 @@ comments.addEventListener("input", () => {
         errorOutput.style.opacity = 0;
     }
 });
+

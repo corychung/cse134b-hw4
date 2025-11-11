@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Projects page for Cory Chung's personal portfolio showcasing various projects.">
     <title>Projects</title>
+    <script src="theme-picker.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -112,14 +113,13 @@
             <h3>Pick a theme!</h3>
         </header>
         <form>
-            <input id="light" name="theme" type="radio" data-theme="light" checked></input>
+            <input id="light" name="theme" type="radio" data-theme="light" onclick="light_theme()" checked></input>
             <label for="light">Light</label>
             <br>
-            <input name="theme" type="radio" data-theme="dark"></input>
+            <input id="dark" name="theme" type="radio" data-theme="dark" onclick="dark_theme()"></input>
             <label for="dark">Dark</label>
         </form>
         <footer>
-            <p><sup></sup>Color theming will not persist across pages.<sup></p>
             <button commandfor="themeDialog" command="close">Close</button>
         </footer>
     </dialog>
