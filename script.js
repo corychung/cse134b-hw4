@@ -138,7 +138,7 @@ nameField.addEventListener("input", () => {
     }
 });
 
-// Secondly, add a feature that counts down the characters allowed in the comments
+// add a feature that counts down the characters allowed in the comments
 
 comments.addEventListener("input", () => {
     const remaining = comments.maxLength - comments.value.length;

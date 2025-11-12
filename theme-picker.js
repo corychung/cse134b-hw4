@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedTheme) {
         setTheme(savedTheme);
     }
+    else {
+        setTheme("light");
+    }
     document.getElementById(savedTheme).checked = true;
 });
 
