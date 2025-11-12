@@ -6,6 +6,8 @@ function setTheme(theme) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("theme-picker");
+    toggle.hidden = false;
     const savedTheme = localStorage.getItem("theme");
     console.log("LOAD");
     if (savedTheme) {

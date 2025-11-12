@@ -67,6 +67,22 @@
         font-display: swap;
     }
 
+    /* Default theme for JS-disabled userse */
+    :root {
+        --background-color: #f9f6ff;
+        --background-highlight: #000000;
+        --text-color: #7b7bc3;
+        --text-color-hover: #6868be;
+        --text-color-active: #5656be;
+        --heading-text-color: #4848a2;
+        --border-settings: 2px solid #7b7bc3;
+
+        --border-radius: 0.5rem;
+        --error-color: #ff8181;
+        --error-field-color: #ffeaea;
+        --verify-color: #00ac00;
+    }
+
     :root[data-theme="light"] {
         --background-color: #f9f6ff;
         --background-highlight: #000000;
