@@ -324,11 +324,14 @@
             }
 
             /* BEGIN Styling for HW4 */
-            &>label::after,
-            fieldset>legend::after {
+            label:has(+ input:required)::after,
+            label:has(+ textarea:required)::after,
+            fieldset > legend::after {
                 content: "*";
                 color: var(--error-color);
             }
+
+            /* no optional attributes exist for my form so :optional is not used */
 
             input:user-invalid, textarea:user-invalid {
                 border-color: var(--error-color);
@@ -342,7 +345,7 @@
             &:has(input:user-invalid) #form-error::before,
             &:has(textarea:user-invalid) #form-error::before {
                 content: "You have invalid fields.";
-                color: var(--error-color);
+                color: var(--error-color);  
                 font-weight: bold;
             }
 
